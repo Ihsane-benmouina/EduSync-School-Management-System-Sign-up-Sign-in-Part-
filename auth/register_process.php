@@ -10,6 +10,13 @@ if($_SERVER["REQUEST_METHOD"]="POST"){
     $confirmPassword=$_POST['confirmPassword'];
 
 
+    
+    if ($password !== $confirmPassword) {
+    echo "Les mots de passe ne correspondent pas!";
+    exit();
+}
+
+
 }
 
 

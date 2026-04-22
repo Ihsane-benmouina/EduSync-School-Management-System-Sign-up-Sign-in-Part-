@@ -28,6 +28,19 @@ if($user){
     echo"email deja exict";
 }
 
+$role=3;
+$sql="INSERT INTO users(`firstName`,`lasttName`,`email`,`passwork`,`id_role`)  
+VALUES(:nom ,:prenom ,:email , :password , :role )";
+$stmt=$conn->prepare($sql);
+$stmt->execute([
+    'nom'=>$firstName,
+    'prenom'=>$lastName,
+    'email'=>$email,
+    'password'=>$hashpassword,
+    'role'=>$role,
+]);
+
+
 
 
 }

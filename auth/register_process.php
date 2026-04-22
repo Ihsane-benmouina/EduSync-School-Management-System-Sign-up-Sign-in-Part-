@@ -19,6 +19,17 @@ if($_SERVER["REQUEST_METHOD"]="POST"){
 $hashpassword=password_hash($password,PASSWORD_DEFAULT);
 
 
+$sql="SELECT $ FROM users WHERE email=:email";
+$stmt=$conn->prepare($sql);
+$stmt->execute(['email'=>$email]);
+$user=$stmt->fetch();
+
+if($user){
+    echo"email deja exict";
+}
+
+
+
 }
 
 

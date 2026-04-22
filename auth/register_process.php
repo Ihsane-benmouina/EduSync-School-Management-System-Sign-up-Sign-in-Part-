@@ -40,7 +40,9 @@ $stmt->execute([
     'role'=>$role,
 ]);
 
-
+$_SESSION['user_id']=$conn->lastInsertId();
+header("Location: ../dashboard/index.php");
+exit();
 
 
 }

@@ -19,10 +19,20 @@ if ($password !== $confirmPassword) {
     $stmt->execute(['email'=>$email]);
     $user=$stmt->fetch();
 
-    if($user){
-        echo"Email deja utilise";
+      if (empty($firstName) || empty($lastName) || empty($email) || empty($password) || empty($confirmPassword)) {
+        header("Location:register.php?error=remplir tous les champs");
         exit();
     }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        header("Location: register.php?error=fomat unvalidate");
+        exit();
+    }
+
+    if ($password !== $confirmPassword) {
+        header("Location:register.php?error=password inconfirmd ");
+        exit();
+    }
+
 
     $role = 3;
     $sql="INSERT INTO users(`firstName`,`lasttName`,`email`,`passwork`,`id_role`) 

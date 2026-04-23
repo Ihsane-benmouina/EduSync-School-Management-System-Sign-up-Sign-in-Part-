@@ -19,6 +19,11 @@
                 format d'email invalidate
             </div>";
             }
+            if ($_GET['error'] == "Email ou mot de passe incorrect") {
+                echo " <div class='bg-red-100 text-red-700 p-3 rounded-lg mb-4'>
+                Email ou mot de passe incorrect
+            </div>";
+            }
            
         }
         ?>

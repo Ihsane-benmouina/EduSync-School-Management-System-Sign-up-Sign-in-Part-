@@ -8,6 +8,20 @@
     <title>Document</title>
 </head>
 <body>
+      <?php if (isset($_GET['error'])) {
+            if ($_GET['error'] == "Tous les champs sont obligatoires") {
+                echo " <div class='bg-red-100 text-red-700 p-3 rounded-lg mb-4'>
+                Tous les champs sont obligatoires
+            </div>";
+            }
+            if ($_GET['error'] == "fomat unvalidate") {
+                echo " <div class='bg-red-100 text-red-700 p-3 rounded-lg mb-4'>
+                format d'email invalidate
+            </div>";
+            }
+           
+        }
+        ?>
     <form method="POST" action="login_process.php">
     <section class="bg-pink-50 dark:bg-pink-900">
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">

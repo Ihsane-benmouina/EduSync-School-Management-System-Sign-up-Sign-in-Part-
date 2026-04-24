@@ -10,6 +10,17 @@
         </h1>
 
         <?php if (isset($_GET['error'])) {
+             if ($_GET['error'] == "First name invalide") {
+                echo " <div class='bg-red-100 text-red-700 p-3 rounded-lg mb-4'>
+                First name invalide
+            </div>";
+            }
+             if ($_GET['error'] == "Last name invalide") {
+                echo " <div class='bg-red-100 text-red-700 p-3 rounded-lg mb-4'>
+                Last name invalide
+            </div>";
+            }
+
             if ($_GET['error'] == "password inconfirmd") {
                 echo " <div class='bg-red-100 text-red-700 p-3 rounded-lg mb-4'>
                 password incomfirmed

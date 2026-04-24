@@ -1,8 +1,8 @@
 <?php require '../config/db.php';
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $firstName = htmlspecialchars($_POST['firstName']);
-    $lastName = htmlspecialchars($_POST['lastName']);
+    $firstName = htmlspecialchars(trim($_POST['firstName']));
+    $lastName = htmlspecialchars(trim($_POST['lastName']));
     $email = htmlspecialchars(trim($_POST['email']));
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
@@ -10,6 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($firstName) || empty($lastName) || empty($email) || empty($password) || empty($confirmPassword)) {
         header("Location:register.php?error=remplir tous les champs");
+        exit();
+    }
+    if (!preg_match("/^[a-zA-Z]+$/", $firstName)) {
+        header("Location: register.php?error=First name invalide");
+        exit();
+    }
+
+    if (!preg_match("/^[a-zA-Z]+$/", $lastName)) {
+        header("Location: register.php?error=Last name invalide");
         exit();
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

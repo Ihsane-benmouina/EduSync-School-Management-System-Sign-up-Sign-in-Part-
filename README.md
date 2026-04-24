@@ -119,7 +119,7 @@ School_mangement/
 
 ## 👨‍🎓 Auteur
 
-Projet réalisé par : **Ton Nom**
+Projet réalisé par : **IHSANE BEN-MOUINA**
 
 ---
 
